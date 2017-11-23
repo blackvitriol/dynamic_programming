@@ -1,3 +1,8 @@
+'''
+Dynamic Programming: Reinforcement Learning Functions for OpenAI Gym
+	- policy_iteration
+	- value_iteration
+'''
 import numpy as np
 
 
@@ -74,7 +79,7 @@ def policy_evaluation(policy, environment, discount_factor=1.0, theta=1e-9, max_
 
         # Terminate if value change is insignificant
         if delta < theta:
-            print(f'Policy evaluated in {evaluation_iterations} iterations.')
+            print('Policy evaluated in {} iterations.'.format(evaluation_iterations))
             return V
 
 
@@ -128,7 +133,7 @@ def policy_iteration(environment, discount_factor=1.0, max_iter=1e9):
 
         # If the algorithm converged and policy is not changing anymore, than return final policy and value function
         if stable_policy:
-            print(f'Evaluated {evaluated_policies} policies.')
+            print('Evaluated {} policies.'.format(evaluated_policies))
             return policy, V
 
 
@@ -169,7 +174,7 @@ def value_iteration(environment, discount_factor=1.0, theta=1e-9, max_iterations
 
         # Check if we can stop
         if delta < theta:
-            print(f'Value-iteration converged at iteration#{i}.')
+            print('Value-iteration converged at iteration#{}.'.format(i))
             break
 
     # Create a deterministic policy using the optimal value function
